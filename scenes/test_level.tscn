@@ -1,0 +1,85 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(320, 8)
+
+[sub_resource type="RectangleShape2D" id="2"]
+size = Vector2(320, 8)
+
+[sub_resource type="RectangleShape2D" id="3"]
+size = Vector2(8, 180)
+
+[sub_resource type="RectangleShape2D" id="4"]
+size = Vector2(8, 180)
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="Background" type="ColorRect" parent="."]
+color = Color(0.12, 0.12, 0.2, 1)
+size = Vector2(320, 180)
+
+[node name="HLine1" type="ColorRect" parent="."]
+color = Color(1, 1, 1, 0.06)
+position = Vector2(0, 60)
+size = Vector2(320, 1)
+
+[node name="HLine2" type="ColorRect" parent="."]
+color = Color(1, 1, 1, 0.06)
+position = Vector2(0, 120)
+size = Vector2(320, 1)
+
+[node name="VLine1" type="ColorRect" parent="."]
+color = Color(1, 1, 1, 0.06)
+position = Vector2(107, 0)
+size = Vector2(1, 180)
+
+[node name="VLine2" type="ColorRect" parent="."]
+color = Color(1, 1, 1, 0.06)
+position = Vector2(213, 0)
+size = Vector2(1, 180)
+
+[node name="BlockRed" type="ColorRect" parent="."]
+color = Color(0.8, 0.2, 0.2, 1)
+position = Vector2(40, 30)
+size = Vector2(16, 16)
+
+[node name="BlockGreen" type="ColorRect" parent="."]
+color = Color(0.2, 0.8, 0.3, 1)
+position = Vector2(264, 134)
+size = Vector2(16, 16)
+
+[node name="BlockYellow" type="ColorRect" parent="."]
+color = Color(0.9, 0.8, 0.1, 1)
+position = Vector2(40, 134)
+size = Vector2(16, 16)
+
+[node name="BlockPurple" type="ColorRect" parent="."]
+color = Color(0.6, 0.2, 0.9, 1)
+position = Vector2(264, 30)
+size = Vector2(16, 16)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="WallTop" type="CollisionShape2D" parent="Walls"]
+position = Vector2(160, 4)
+shape = SubResource("1")
+
+[node name="WallBottom" type="CollisionShape2D" parent="Walls"]
+position = Vector2(160, 176)
+shape = SubResource("2")
+
+[node name="WallLeft" type="CollisionShape2D" parent="Walls"]
+position = Vector2(4, 90)
+shape = SubResource("3")
+
+[node name="WallRight" type="CollisionShape2D" parent="Walls"]
+position = Vector2(316, 90)
+shape = SubResource("4")
+
+[node name="Player" parent="." instance=ExtResource("1")]
+position = Vector2(160, 90)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(4, 4)
