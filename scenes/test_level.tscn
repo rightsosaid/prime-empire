@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=7 format=3]
 
 [ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/portal.tscn" id="2"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(320, 8)
@@ -77,6 +78,14 @@ shape = SubResource("3")
 [node name="WallRight" type="CollisionShape2D" parent="Walls"]
 position = Vector2(316, 90)
 shape = SubResource("4")
+
+[node name="Portal" parent="." instance=ExtResource("2")]
+position = Vector2(160, 20)
+target_scene = "res://scenes/test_level_b.tscn"
+spawn_point = "SpawnFromA"
+
+[node name="SpawnFromB" type="Node2D" parent="."]
+position = Vector2(160, 40)
 
 [node name="Player" parent="." instance=ExtResource("1")]
 position = Vector2(160, 90)
